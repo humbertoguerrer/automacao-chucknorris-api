@@ -12,7 +12,6 @@ describe('Testes da API Chuck Norris', () => {
     })
 
     it('Busca uma piada para cada categoria válida', () => {
-
         cy.request('https://api.chucknorris.io/jokes/categories').then((categoriaRes) => {
             const categorias = categoriaRes.body;
             categorias.forEach((categoria) => {
@@ -36,7 +35,6 @@ describe('Testes da API Chuck Norris', () => {
     })
 
     it('Verifica que possui todos os elementos na resposta', () => {
-
         cy.request('https://api.chucknorris.io/jokes/categories').then((res) => {
             const categoria = res.body[0];
 
