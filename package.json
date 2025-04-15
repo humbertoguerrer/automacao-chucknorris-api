@@ -1,0 +1,16 @@
+{
+  "name": "automacao-chucknorris-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress run",
+    "open cypress": "cypress open"
+  },
+  "keywords": [],
+  "author": "Humberto Guerrer Neto",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cypress": "^14.3.0"
+  }
+}
