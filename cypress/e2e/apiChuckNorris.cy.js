@@ -2,8 +2,6 @@
 
 describe('Testes da API Chuck Norris', () => {
 
-    let categorias = [];
-
     it('Lista as categorias disponíveis', () => {
         cy.request('https://api.chucknorris.io/jokes/categories').then((res) => {
             expect(res.status).to.eq(200);
@@ -13,7 +11,7 @@ describe('Testes da API Chuck Norris', () => {
         })
     })
 
-    it('Retorna uma piada para cada categoria válida', () => {
+    it('Busca uma piada para cada categoria válida', () => {
 
         cy.request('https://api.chucknorris.io/jokes/categories').then((categoriaRes) => {
             const categorias = categoriaRes.body;
@@ -36,4 +34,24 @@ describe('Testes da API Chuck Norris', () => {
             expect(res.status).to.eq(404)
         })
     })
-})
+
+    it('Verifica que possui todos os elementos na resposta', () => {
+
+        cy.request('https://api.chucknorris.io/jokes/categories').then((res) => {
+            const categoria = res.body[0];
+
+            cy.request(`https://api.chucknorris.io/jokes/random?category=${categoria}`).then((res) => {
+                expect(res.status).to.eq(200);
+                expect(res.body).to.include.keys(
+                    'categories',
+                    'created_at',
+                    'icon_url',
+                    'id',
+                    'updated_at',
+                    'url',
+                    'value'                   
+                );
+            });
+        });
+    });
+});
