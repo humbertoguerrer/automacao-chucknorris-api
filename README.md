@@ -36,10 +36,10 @@ funcione corretamente e de forma confiável.
 
 Os seguintes endpoints foram testados:
 
-* ConsultaCategoria – GET /jokes/categories
+* ConsultaCategoria – GET /jokes/categories<br>
 Retorna uma lista de categorias de piadas disponíveis.
 
-*  ConsultaJokes – GET /jokes/random?category={category}
+*  ConsultaJokes – GET /jokes/random?category={category}<br>
 Retorna uma piada aleatória com base na categoria informada.
 
 ## Tecnologias utilizadas
